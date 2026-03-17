@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="pt-BR" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViralPulse - IA para TikTok Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#8b5cf6', // Vivid Purple from middle of logo
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6', // Main color - Purple
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #ffffff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-nav {
+        background: rgba(5, 5, 5, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6); /* blue to purple to pink */
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* CUSTOM BUTTON STYLES */
+      .custom-btn {
+          position: relative;
+          padding: 16px 40px;
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: 600;
+          border-radius: 12px;
+          overflow: hidden;
+          border: none;
+          cursor: pointer;
+          background: linear-gradient(135deg, #3b82f6, #9333ea, #ec4899); /* Deep Blue to Purple to Pink Gradient */
+          box-shadow: inset 0px -15px 20px -5px rgba(255, 255, 255, 0.35);
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+      }
+      
+      .custom-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(
+              to right,
+              transparent,
+              rgba(255, 255, 255, 0.4),
+              transparent
+          );
+          transform: skewX(-25deg);
+          animation: shine 3s infinite;
+          pointer-events: none;
+      }
+
+      .custom-btn:hover {
+          filter: brightness(1.1);
+          transform: translateY(-2px);
+      }
+
+      @keyframes shine {
+          0% {
+              left: -100%;
+              opacity: 0;
+          }
+          20% {
+              opacity: 1;
+          }
+          50%, 100% {
+              left: 200%;
+              opacity: 0;
+          }
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+  <script type="module" crossorigin="" src="js/index-DXhZGt2j.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+
+</body></html>

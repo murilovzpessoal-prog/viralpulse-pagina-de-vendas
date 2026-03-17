@@ -14155,7 +14155,7 @@ const mh = Or(rh);
                             ],
                           }),
                           f.jsx("a", {
-                            href: "https://go.perfectpay.com.br/PPU38CQ7Q0C",
+                            href: "https://pay.cakto.com.br/382chff_794824",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             className:
@@ -14347,7 +14347,7 @@ const mh = Or(rh);
                             ],
                           }),
                           f.jsx("a", {
-                            href: "https://go.perfectpay.com.br/PPU38CQ7Q0D",
+                            href: "https://pay.cakto.com.br/3cfvneu",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             className:
@@ -14521,7 +14521,7 @@ const mh = Or(rh);
                             ],
                           }),
                           f.jsx("a", {
-                            href: "https://go.perfectpay.com.br/PPU38CQ7Q0E",
+                            href: "https://pay.cakto.com.br/3a6ks56",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             className:

@@ -14336,7 +14336,7 @@ const mh = Or(rh);
                                   f.jsx("span", {
                                     className:
                                       "text-4xl md:text-5xl font-bold text-white tracking-tight",
-                                    children: "R$ 19,98",
+                                    children: "R$ 23,14",
                                   }),
                                 ],
                               }),
@@ -14510,7 +14510,7 @@ const mh = Or(rh);
                                   f.jsx("span", {
                                     className:
                                       "text-3xl md:text-4xl font-bold text-white tracking-tight",
-                                    children: "R$ 30,02",
+                                    children: "R$ 34,76",
                                   }),
                                 ],
                               }),

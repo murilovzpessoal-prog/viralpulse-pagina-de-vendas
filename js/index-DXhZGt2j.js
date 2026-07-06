@@ -12969,7 +12969,7 @@ const mh = Or(rh);
                   className: "flex items-center gap-3",
                   children: [
                     f.jsx("img", {
-                      src: "https://i.imgur.com/9yZ5oUJ.png",
+                      src: "logo-transparent.png",
                       alt: "ViralPulse",
                       className: "h-5 md:h-6 w-auto object-contain",
                     }),
@@ -13182,9 +13182,10 @@ const mh = Or(rh);
               children: f.jsx("div", {
                 className:
                   "flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-16 w-full px-4 sm:px-0",
-                children: f.jsx("button", {
+                children: f.jsx("a", {
+                  href: "#pricing",
                   className:
-                    "custom-btn w-full sm:w-auto text-center justify-center",
+                    "custom-btn w-full sm:w-auto text-center justify-center block md:inline-flex",
                   children: "Começar agora",
                 }),
               }),
@@ -13218,9 +13219,9 @@ const mh = Or(rh);
                           }),
                         }),
                         f.jsx("img", {
-                          src: "https://i.imgur.com/XgTiHLL.png",
+                          src: "https://i.imgur.com/L5YpRnO.png",
                           alt: "Dashboard ViralPulse",
-                          className: "w-full h-full object-cover opacity-90",
+                          className: "w-full h-full object-cover object-top opacity-90",
                         }),
                       ],
                     }),
@@ -13263,28 +13264,28 @@ const mh = Or(rh);
         num: "01",
         title: "Mineração de Dados",
         desc: "Nossa IA varre o TikTok Shop em tempo real para encontrar produtos que estão viralizando agora.",
-        image: "https://i.imgur.com/i3xW4B7.png",
+        image: "https://i.imgur.com/wgLNxjW.png",
         tag: "Analytics",
       },
       {
         num: "02",
         title: "Criação do Avatar",
         desc: "Escolha ou crie um influenciador virtual indistinguível da realidade para representar sua marca.",
-        image: "https://i.imgur.com/dGQhgIw.png",
+        image: "https://i.imgur.com/fBk94Xj.png",
         tag: "Deepfake tech",
       },
       {
         num: "03",
         title: "Personalização de Cena",
         desc: "Defina o cenário, iluminação e estilo do vídeo sem precisar de estúdio físico ou equipamentos.",
-        image: "https://i.imgur.com/ipJDnzG.png",
+        image: "https://i.imgur.com/CSCtD5i.png",
         tag: "Studio AI",
       },
       {
         num: "04",
         title: "Renderização e Venda",
         desc: "Gere centenas de variações de vídeos de alta conversão em minutos e publique.",
-        image: "https://i.imgur.com/WWEJ8QY.png",
+        image: "https://i.imgur.com/AlHERaJ.png",
         tag: "Auto-Render",
       },
     ];
@@ -13363,7 +13364,7 @@ const mh = Or(rh);
                         children: f.jsx("img", {
                           src: D.image,
                           alt: D.title,
-                          className: "w-full h-full object-cover opacity-100",
+                          className: "w-full h-full object-cover object-top opacity-100",
                         }),
                       }),
                     ],
@@ -13483,7 +13484,7 @@ const mh = Or(rh);
                                       "w-8 h-8 md:w-10 md:h-10 rounded bg-gray-800 bg-cover bg-center",
                                     style: {
                                       backgroundImage:
-                                        "url(https://i.imgur.com/i3xW4B7.png)",
+                                        "url(https://i.imgur.com/wgLNxjW.png)",
                                     },
                                   }),
                                   f.jsxs("div", {
@@ -13534,7 +13535,7 @@ const mh = Or(rh);
                                       "w-8 h-8 md:w-10 md:h-10 rounded bg-gray-800 bg-cover bg-center",
                                     style: {
                                       backgroundImage:
-                                        "url(https://i.imgur.com/ipJDnzG.png)",
+                                        "url(https://i.imgur.com/CSCtD5i.png)",
                                     },
                                   }),
                                   f.jsxs("div", {
@@ -13937,7 +13938,7 @@ const mh = Or(rh);
                               }),
                             }),
                             f.jsx("img", {
-                              src: "https://i.imgur.com/npvBQ2a.png",
+                              src: "https://i.imgur.com/z6oHgjE.png",
                               className: "w-full h-full object-cover",
                               alt: "Interface Vyral Desktop",
                             }),
@@ -13955,7 +13956,7 @@ const mh = Or(rh);
                           f.jsx("div", {
                             className: "iphone-screen",
                             children: f.jsx("img", {
-                              src: "https://i.imgur.com/z2Pt45c.png",
+                              src: "https://i.imgur.com/CPr0r3k.png",
                               className: "w-full h-full object-cover",
                               alt: "Interface Vyral Mobile",
                             }),
@@ -14131,7 +14132,7 @@ const mh = Or(rh);
                               f.jsx("p", {
                                 className:
                                   "text-gray-500 text-sm font-medium line-through mb-1",
-                                children: "De R$ 297",
+                                children: "De R$ 397",
                               }),
                               f.jsx("p", {
                                 className:
@@ -14144,7 +14145,7 @@ const mh = Or(rh);
                                   f.jsx("span", {
                                     className:
                                       "text-3xl md:text-4xl font-bold text-white tracking-tight",
-                                    children: "R$ 127",
+                                    children: "R$ 197",
                                   }),
                                   f.jsx("span", {
                                     className: "text-gray-500 font-medium",
@@ -14301,7 +14302,7 @@ const mh = Or(rh);
                                     }),
                                   }),
                                   f.jsx("span", {
-                                    children: "Economia de R$ 1.325/ano",
+                                    children: "Economia de R$ 1.967/ano",
                                   }),
                                 ],
                               }),
@@ -14318,7 +14319,7 @@ const mh = Or(rh);
                               f.jsx("p", {
                                 className:
                                   "text-gray-400 text-sm font-medium line-through mb-1",
-                                children: "De R$ 399",
+                                children: "De R$ 697",
                               }),
                               f.jsx("p", {
                                 className:
@@ -14336,13 +14337,13 @@ const mh = Or(rh);
                                   f.jsx("span", {
                                     className:
                                       "text-4xl md:text-5xl font-bold text-white tracking-tight",
-                                    children: "R$ 23,14",
+                                    children: "R$ 46,16",
                                   }),
                                 ],
                               }),
                               f.jsx("p", {
                                 className: "text-xs text-gray-400 mt-2",
-                                children: "ou R$ 199 à vista",
+                                children: "ou R$ 397 à vista",
                               }),
                             ],
                           }),
@@ -14492,7 +14493,7 @@ const mh = Or(rh);
                               f.jsx("p", {
                                 className:
                                   "text-gray-500 text-sm font-medium line-through mb-1",
-                                children: "De R$ 499",
+                                children: "De R$ 997",
                               }),
                               f.jsx("p", {
                                 className:
@@ -14510,13 +14511,13 @@ const mh = Or(rh);
                                   f.jsx("span", {
                                     className:
                                       "text-3xl md:text-4xl font-bold text-white tracking-tight",
-                                    children: "R$ 34,76",
+                                    children: "R$ 69,40",
                                   }),
                                 ],
                               }),
                               f.jsx("p", {
                                 className: "text-xs text-gray-500 mt-2",
-                                children: "ou R$ 299 à vista",
+                                children: "ou R$ 597 à vista",
                               }),
                             ],
                           }),

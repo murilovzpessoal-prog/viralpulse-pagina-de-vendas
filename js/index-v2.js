@@ -14525,8 +14525,7 @@ const mh = Or(rh);
                             href: "https://pay.cakto.com.br/3a6ks56",
                             target: "_blank",
                             rel: "noopener noreferrer",
-                            className:
-                              "w-full py-3.5 rounded-xl font-bold text-sm transition-all bg-brand-500/10 border border-brand-500/20 text-brand-400 hover:bg-brand-500/20 flex items-center justify-center",
+                            className: "w-full py-3.5 rounded-xl font-bold text-sm transition-all bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center border border-white/5",
                             children: "Acesso Vitalício",
                           }),
                         ],

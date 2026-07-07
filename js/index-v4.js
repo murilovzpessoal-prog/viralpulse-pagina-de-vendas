@@ -14554,13 +14554,13 @@ const mh = Or(rh);
                       children: [
                         f.jsx("h3", {
                           className: "text-xl font-bold mb-2",
-                          children: "Garantia de 14 Dias",
+                          children: "Garantia de 7 Dias",
                         }),
                         f.jsx("p", {
                           className:
                             "text-gray-400 text-sm leading-relaxed mb-4",
                           children:
-                            "Experimente qualquer plano sem risco. Se não ficar satisfeito nos primeiros 14 dias, devolvemos 100% do seu dinheiro, sem perguntas.",
+                            "Experimente qualquer plano sem risco. Se não ficar satisfeito nos primeiros 7 dias, devolvemos 100% do seu dinheiro, sem perguntas.",
                         }),
                         f.jsxs("div", {
                           className:
@@ -14635,7 +14635,7 @@ const mh = Or(rh);
         },
         {
           q: "E se eu não gostar?",
-          a: "Você tem 14 dias para testar sem risco. Se não ajudar você a vender, devolvemos 100% do valor.",
+          a: "Você tem 7 dias para testar sem risco. Se não ajudar você a vender, devolvemos 100% do valor.",
         },
       ],
       [D, q] = ft.useState(0);

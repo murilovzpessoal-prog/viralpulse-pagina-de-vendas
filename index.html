@@ -5,7 +5,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Outfit:wght@400;500;700&amp;family=Space+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+      /* Melhoria na aparência do título principal (24 horas por dia) */
+      h1 span.text-brand-500 {
+        color: #d073ff !important;
+        -webkit-text-fill-color: #d073ff !important;
+        background: none !important;
+        text-shadow: none !important;
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
@@ -199,8 +208,341 @@
 }
 </script>
   <script type="module" crossorigin="" src="js/index-v4.js"></script>
+  <style id="hide-pricing">#pricing { display: none !important; }</style>
 </head>
   <body>
     <div id="root"></div>
 
-</body></html>
+
+
+</body>
+</html>
+<script>
+  (function() {
+    // State
+    let isDiscountActive = false;
+    let activeCoupon = '';
+    let timerSeconds = 10 * 60; // 10 minutes
+    let timerInterval = null;
+
+    const formatTime = (totalSeconds) => {
+      const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+      const s = (totalSeconds % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    };
+
+    const startTimer = () => {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          const el = document.getElementById('coupon-timer');
+          if (el) el.innerText = formatTime(timerSeconds);
+        }
+      }, 1000);
+    };
+
+    const getPricingHTML = () => {
+      if (!isDiscountActive) {
+        return `
+          <div class="py-16 md:py-24 relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(176,38,255,0.15)_0%,transparent_60%)] pointer-events-none z-[-1]"></div>
+            <div class="container mx-auto px-4 relative z-10">
+              <div class="mb-10 text-center text-white">
+                <div class="text-gray-400 text-sm tracking-[0.2em] font-bold uppercase mb-3">Planos</div>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">Cancele quando quiser. Sem letras miúdas.</p>
+              </div>
+
+              <!-- Coupon Input -->
+              <div class="flex justify-center mb-12">
+                <div class="relative flex items-center w-full max-w-sm bg-[#121216] border border-white/10 rounded-full p-1.5 shadow-lg overflow-hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#b026ff] absolute left-5"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2"></path><path d="M13 17v2"></path><path d="M13 11v2"></path></svg>
+                  <input type="text" id="coupon-input" placeholder="TEM UM CUPOM DE INDICAÇÃO?" class="bg-transparent text-[11px] w-full outline-none pl-11 pr-4 text-white placeholder-white/40 uppercase font-bold tracking-wider">
+                  <button id="apply-coupon-btn" class="bg-[#b026ff] text-white px-5 py-2 rounded-full text-xs font-bold hover:opacity-90 transition-opacity">Aplicar</button>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 max-w-[760px] mx-auto mb-16">
+                <!-- Mensal -->
+                <div class="glass-panel p-6 rounded-[2rem] border border-white/10 h-full flex flex-col relative bg-[#0D0D12]">
+                  <h3 class="text-[22px] font-bold text-white mb-2">Mensal</h3>
+                  <p class="text-gray-400 text-[13px] mb-6 min-h-[40px]">Acesso completo ao Ennvo com flexibilidade total.</p>
+                  
+                  <div class="relative mb-6">
+                    <div class="flex items-end gap-2 mb-1">
+                      <span class="text-[40px] font-bold text-white leading-none">R$ 319,90</span>
+                    </div>
+                    <div class="text-gray-400 text-xs">/mês</div>
+                  </div>
+
+                  <div class="bg-[#14141A] border border-white/5 rounded-xl p-3 mb-6 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/40 shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                    <p class="text-xs text-gray-300 font-medium">
+                      <strong class="text-white">1.000 créditos</strong> para geração de imagem
+                    </p>
+                  </div>
+
+                  <ul class="space-y-3 mb-8 flex-grow text-xs">
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Inventário por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado a Influencers por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Swap AI por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Editor por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Hub por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Academy por 1 mês</span></li>
+                  </ul>
+                  <a href="https://pay.cakto.com.br/h6zxvfe" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Assinar mensal</a>
+                </div>
+
+                <!-- Vitalício -->
+                <div class="relative mt-8 md:mt-0">
+                  <div class="absolute -top-3.5 inset-x-0 mx-auto w-max bg-[#b026ff] text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider z-20 shadow-[0_0_20px_rgba(176,38,255,0.6)]">MELHOR CUSTO-BENEFÍCIO</div>
+                  <div class="glass-panel p-6 rounded-[2rem] border border-[#b026ff]/40 h-full flex flex-col relative bg-[#0D0D12]">
+                    <h3 class="text-[22px] font-bold text-white mb-2">Vitalício</h3>
+                    <p class="text-gray-400 text-[13px] mb-6 min-h-[40px]">Pague uma vez. Use para sempre, sem mensalidade.</p>
+                    
+                    <div class="relative mb-6">
+                      <div class="flex items-end gap-1 mb-1">
+                        <span class="text-[40px] font-bold text-white leading-none">R$ 597,00</span>
+                      </div>
+                      <div class="text-xs text-gray-400">pagamento único</div>
+                    </div>
+
+                    <div class="bg-[#14141A] border border-white/5 rounded-xl p-3 mb-6 flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/40 shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                      <p class="text-xs text-gray-300 font-medium">
+                        <strong class="text-white">3.000 créditos</strong> para geração de imagem
+                      </p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 flex-grow text-xs">
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Inventário</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado a Influencers</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Swap AI</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Editor</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Hub</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Academy</span></li>
+                    </ul>
+                    <a href="https://pay.cakto.com.br/3a6ks56" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Garantir vitalício</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        return `
+          <!-- Sticky Header -->
+          <div class="fixed top-0 left-0 w-full z-50 bg-[#6b21a8] text-white py-3 px-4 shadow-[0_4px_30px_rgba(107,33,168,0.5)] flex flex-col md:flex-row items-center justify-between" style="background-color: #6b21a8 !important;">
+            <div class="flex items-center gap-3 font-medium text-sm md:text-base">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Seu cupom <strong class="bg-white/20 px-2 py-0.5 rounded ml-1">${activeCoupon.toUpperCase()}</strong> expira em <span id="coupon-timer" class="font-bold ml-1">${formatTime(timerSeconds)}</span></span>
+            </div>
+            
+            <div class="flex items-center gap-4 mt-2 md:mt-0">
+              <div class="flex items-center gap-2 text-xs md:text-sm font-medium">
+                <span class="flex h-3 w-3 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                </span>
+                <span>🔥 11 pessoas utilizando esse cupom agora. Adquira antes que o cupom esgote!</span>
+              </div>
+              <button onclick="document.getElementById('custom-pricing').scrollIntoView({behavior: 'smooth'})" class="bg-white text-[#6b21a8] px-4 py-1.5 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors whitespace-nowrap hidden md:block" style="color: #6b21a8 !important;">Adquirir agora &rarr;</button>
+            </div>
+          </div>
+
+          <div class="py-16 md:py-24 relative mt-16 md:mt-8">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(176,38,255,0.15)_0%,transparent_60%)] pointer-events-none z-[-1]"></div>
+            <div class="container mx-auto px-4 relative z-10 pt-8 md:pt-12">
+              
+              <!-- Success Coupon Boxes -->
+              <div class="flex flex-col items-center gap-3 mb-12 max-w-[600px] mx-auto">
+                <div class="w-full bg-[#1A1A24] border border-[#b026ff]/30 rounded-[1rem] py-3 px-4 flex items-center justify-between shadow-[0_0_20px_rgba(176,38,255,0.1)]">
+                  <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff]"><path d="M20 12v10H4V12"></path><path d="M2 7h20v5H2z"></path><path d="M12 22V7"></path><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                    <div class="flex flex-col">
+                      <span class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Cupom Aplicado</span>
+                      <span class="text-white text-sm font-bold tracking-widest leading-none mt-1">${activeCoupon.toUpperCase()}</span>
+                    </div>
+                  </div>
+                  <button id="remove-coupon-btn" class="text-gray-500 hover:text-white transition-colors p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                  </button>
+                </div>
+
+                <div class="w-full bg-[#121216] border border-white/5 rounded-[1rem] py-3 px-4 flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-500 shrink-0 mt-0.5"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path></svg>
+                  <p class="text-[13px] text-gray-400 leading-relaxed">
+                    O usuário que indicou <strong class="text-white">abriu mão de qualquer recompensa</strong> para destinar créditos infinitos à sua conta.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 max-w-[760px] mx-auto mb-16">
+                <!-- Mensal -->
+                <div class="glass-panel p-6 rounded-[2rem] border border-[#00F0FF]/20 h-full flex flex-col relative bg-[#0D0D12]">
+                  <h3 class="text-[22px] font-bold text-white mb-2">Mensal</h3>
+                  <p class="text-gray-400 text-[13px] mb-6 min-h-[40px]">Acesso completo ao Ennvo com flexibilidade total.</p>
+                  
+                  <div class="relative mb-6">
+                    <div class="flex items-end gap-2 mb-1">
+                      <span class="text-[40px] font-bold text-white leading-none">R$ 159,00</span>
+                      <span class="text-gray-500 text-[13px] line-through decoration-gray-500 mb-1">R$ 319,90</span>
+                    </div>
+                    <div class="text-gray-400 text-xs">/mês</div>
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                      <span class="bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/20 text-[10px] font-bold px-2 py-0.5 rounded-full">-50%</span>
+                    </div>
+                  </div>
+
+                  <div class="bg-[#14141A] border border-[#00F0FF]/20 rounded-xl p-3 mb-3 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                    <p class="text-xs text-gray-300 font-medium">
+                      Créditos <strong class="text-[#00F0FF]">infinitos</strong> para geração de imagem
+                    </p>
+                  </div>
+                  
+                  <div class="bg-[#14141A] border border-[#00F0FF]/20 rounded-xl p-3 mb-8 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0"><path d="M20 12v10H4V12"></path><path d="M2 7h20v5H2z"></path><path d="M12 22V7"></path><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                    <p class="text-xs text-gray-300 font-medium">
+                      <strong class="text-white">Desconto de 50%</strong> aplicado pela indicação
+                    </p>
+                  </div>
+
+                  <ul class="space-y-3 mb-8 flex-grow text-xs">
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Inventário por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado a Influencers por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Swap AI por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Editor por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Hub por 1 mês</span></li>
+                    <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Academy por 1 mês</span></li>
+                  </ul>
+                  <a href="https://pay.cakto.com.br/382chff_794824" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Assinar mensal</a>
+                </div>
+
+                <!-- Vitalício -->
+                <div class="relative mt-8 md:mt-0">
+                  <div class="absolute -top-3.5 inset-x-0 mx-auto w-max bg-[#b026ff] text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider z-20 shadow-[0_0_20px_rgba(176,38,255,0.6)]">MELHOR CUSTO-BENEFÍCIO</div>
+                  <div class="glass-panel p-6 rounded-[2rem] border border-[#b026ff]/40 h-full flex flex-col relative bg-[#0D0D12]">
+                    <h3 class="text-[22px] font-bold text-white mb-2">Vitalício</h3>
+                    <p class="text-gray-400 text-[13px] mb-6 min-h-[40px]">Pague uma vez. Use para sempre, sem mensalidade.</p>
+                    
+                    <div class="relative mb-6">
+                      <div class="flex items-end gap-1 mb-1">
+                        <span class="text-[#b026ff] font-bold text-[10px] uppercase mb-1.5">12X DE</span>
+                        <span class="text-[40px] font-bold text-white leading-none">R$ 31,53</span>
+                        <span class="text-gray-400 text-xs mb-1.5 ml-1">no cartão</span>
+                      </div>
+                      <div class="text-xs text-white">
+                        ou <strong class="font-bold">R$ 295,90</strong> à vista <span class="text-gray-500 line-through ml-1 decoration-gray-500">R$ 597,00</span>
+                      </div>
+                      <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                        <span class="bg-[#b026ff]/10 text-[#b026ff] border border-[#b026ff]/20 text-[10px] font-bold px-2 py-0.5 rounded-full">-50%</span>
+                      </div>
+                    </div>
+
+                    <div class="bg-[#14141A] border border-[#b026ff]/20 rounded-xl p-3 mb-3 flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                      <p class="text-xs text-gray-300 font-medium">
+                        Créditos <strong class="text-[#b026ff]">infinitos</strong> para geração de imagem
+                      </p>
+                    </div>
+                    
+                    <div class="bg-[#14141A] border border-[#b026ff]/20 rounded-xl p-3 mb-8 flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0"><path d="M20 12v10H4V12"></path><path d="M2 7h20v5H2z"></path><path d="M12 22V7"></path><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                      <p class="text-xs text-gray-300 font-medium">
+                        <strong class="text-white">Desconto de 50%</strong> aplicado pela indicação
+                      </p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 flex-grow text-xs">
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Inventário</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado a Influencers</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Swap AI</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Editor</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Hub</span></li>
+                      <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao Ennvo Academy</span></li>
+                    </ul>
+                    <a href="https://pay.cakto.com.br/mkxq6qj" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Garantir vitalício</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    };
+
+    const attachEvents = () => {
+      if (!isDiscountActive) {
+        const btn = document.getElementById('apply-coupon-btn');
+        const input = document.getElementById('coupon-input');
+        if (btn && input) {
+          btn.addEventListener('click', () => {
+            const val = input.value.trim().toLowerCase();
+            if (val === 'live' || val === 'copa 2026' || val === 'copa' || val === 'hexa2026') {
+              isDiscountActive = true;
+              activeCoupon = val;
+              startTimer();
+              render();
+            }
+          });
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') btn.click();
+          });
+        }
+      } else {
+        const removeBtn = document.getElementById('remove-coupon-btn');
+        if (removeBtn) {
+          removeBtn.addEventListener('click', () => {
+            isDiscountActive = false;
+            activeCoupon = '';
+            if (timerInterval) clearInterval(timerInterval);
+            timerSeconds = 10 * 60;
+            render();
+          });
+        }
+      }
+    };
+
+    const render = () => {
+      let wrapper = document.getElementById('custom-pricing');
+      if (wrapper) {
+        wrapper.innerHTML = getPricingHTML();
+        attachEvents();
+      }
+    };
+
+    const enforceUI = () => {
+      const oldPricing = document.getElementById('pricing');
+      if (!oldPricing) return;
+
+      let wrapper = document.getElementById('custom-pricing');
+      if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.id = 'custom-pricing';
+        wrapper.className = 'w-full';
+        wrapper.innerHTML = getPricingHTML();
+        oldPricing.parentNode.insertBefore(wrapper, oldPricing.nextSibling);
+        attachEvents();
+      } else if (wrapper.parentNode !== oldPricing.parentNode) {
+        oldPricing.parentNode.insertBefore(wrapper, oldPricing.nextSibling);
+      }
+    };
+
+    // Watch for React re-renders wiping our DOM node
+    const observer = new MutationObserver(() => {
+      enforceUI();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Initial check
+    const interval = setInterval(() => {
+      if (document.getElementById('pricing')) {
+        clearInterval(interval);
+        enforceUI();
+      }
+    }, 100);
+
+  })();
+</script>

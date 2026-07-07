@@ -544,5 +544,25 @@
       }
     }, 100);
 
+    // Global click listener for "Começar" / "Começar Agora" buttons
+    document.addEventListener('click', (e) => {
+      let target = e.target;
+      while (target && target !== document.body) {
+        if ((target.tagName === 'BUTTON' || target.tagName === 'A') && target.innerText) {
+          const text = target.innerText.trim().toLowerCase();
+          if (text === 'começar' || text === 'começar agora') {
+            e.preventDefault();
+            const pricingSection = document.getElementById('custom-pricing');
+            if (pricingSection) {
+              const y = pricingSection.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+            return;
+          }
+        }
+        target = target.parentNode;
+      }
+    });
+
   })();
 </script>

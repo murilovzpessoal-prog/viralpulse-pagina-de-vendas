@@ -1,0 +1,58 @@
+/* ============================================
+   ViralPulse Sales Page - Mobile Viewport Fix
+   ============================================
+   
+   ROOT CAUSE: Several glow/decorative elements 
+   use fixed widths (800px, 1000px) that expand  
+   the mobile viewport beyond 768px, triggering 
+   Tailwind's md: breakpoints incorrectly — making
+   the mobile look like desktop layout.
+   
+   This was introduced when the pricing section  
+   was added via innerHTML with w-[800px] divs.
+   The React bundle also has a w-[800px] in the 
+   FAQ section that can't be changed directly.
+   
+   FIX: Contain overflow at every level.
+   ============================================ */
+
+/* === CRITICAL: Prevent viewport expansion === */
+html {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* Root app container */
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* The main wrapper div rendered by React 
+   has class overflow-x-hidden, but reinforce it */
+#root > div {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Custom pricing container injected via JS */
+#custom-pricing {
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+/* Every section tag: prevent horizontal bleed */
+section {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* === Smooth scrolling === */
+html {
+  scroll-behavior: smooth;
+}

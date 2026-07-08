@@ -2,12 +2,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViralPulse - IA para TikTok Shop</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/tailwind-built.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Outfit:wght@400;500;700&amp;family=Space+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Outfit:wght@400;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      /* Melhoria na aparência do título principal (24 horas por dia) */
       h1 span.text-brand-500 {
         color: #d073ff !important;
         -webkit-text-fill-color: #d073ff !important;
@@ -15,73 +14,7 @@
         text-shadow: none !important;
       }
     </style>
-    <script>
-      tailwind.config = {
-        safelist: [
-          'hidden', 'block', 'flex', 'inline-flex', 'grid', 'inline-block',
-          'md:flex', 'md:hidden', 'md:block', 'md:inline-flex', 'md:grid-cols-2', 'md:grid-cols-3',
-          'md:gap-6', 'md:gap-8', 'md:px-6', 'md:px-8', 'md:py-24', 'md:pb-32', 'md:pb-48',
-          'md:pt-20', 'md:pt-40', 'md:mt-0', 'md:mt-8',
-          'md:text-7xl', 'md:text-6xl', 'md:text-xl', 'md:text-base',
-          'md:h-16', 'md:h-6', 'md:w-[800px]', 'md:w-[120%]', 'md:h-[500px]', 'md:h-[120%]',
-          'md:blur-[120px]', 'md:rounded-2xl', 'md:rounded-xl', 'md:rounded-b-lg',
-          'md:h-3', 'md:h-4', 'md:w-32', 'md:top-8', 'md:mb-6', 'md:mb-8', 'md:mb-10', 'md:mb-16', 'md:mb-20',
-          'sm:text-5xl', 'sm:text-lg', 'sm:flex-row', 'sm:w-auto', 'sm:px-0',
-          'md:flex-row',
-          'opacity-0', 'opacity-100',
-          'pointer-events-none', 'pointer-events-auto',
-          'translate-y-0', '-translate-y-4', 'translate-y-16', '-translate-y-12',
-          'translate-x-0', '-translate-x-12', 'translate-x-12',
-          'scale-100', 'scale-95', 'scale-90',
-          'blur-0', 'blur-lg',
-          'fixed', 'absolute', 'relative', 'inset-0',
-          'z-40', 'z-50',
-          'backdrop-blur-md', 'backdrop-blur-xl', 'backdrop-blur-2xl',
-          'bg-black/40', 'bg-black/60',
-          'glass-panel',
-          'rounded-2xl', 'rounded-full', 'rounded-xl',
-          'shadow-2xl',
-          'overflow-hidden', 'overflow-y-auto',
-          'max-h-[80vh]',
-          'animate-float', 'animate-ping',
-          'will-change-transform',
-          'perspective-1000',
-          'leading-[0]',
-        ],
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                DEFAULT: '#00F0FF', // Vivid Cyan
-                50: '#e0fcff',
-                100: '#b3f8ff',
-                200: '#80f4ff',
-                300: '#4df0ff',
-                400: '#26ecff',
-                500: '#00F0FF', // Main color - Cyan
-                600: '#00d6e6',
-                700: '#00bccc',
-                800: '#00a3b3',
-                900: '#008599',
-              }
-            },
-            fontFamily: {
-              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            },
-            animation: {
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-20px)' },
-              }
-            }
-          }
-        }
-      }
-    </script>
+
     <style>
       body {
         background-color: #0E0E11 !important;

@@ -40,6 +40,12 @@
       vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=ZRAsQRKn",
       mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=ZRAsQRKn",
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=ZRAsQRKn"
+    },
+    "gol30": {
+      mensal: "https://pay.cakto.com.br/h6zxvfe?affiliate=twZub4Mh",
+      vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=twZub4Mh",
+      mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=twZub4Mh",
+      vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=twZub4Mh"
     }
   };
 

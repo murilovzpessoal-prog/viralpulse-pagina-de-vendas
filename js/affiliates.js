@@ -28,6 +28,12 @@
       vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=YL47Vqpv",
       mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=YL47Vqpv",
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=YL47Vqpv"
+    },
+    "camisa10": {
+      mensal: "https://pay.cakto.com.br/h6zxvfe?affiliate=eLo3BmNc",
+      vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=eLo3BmNc",
+      mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=eLo3BmNc",
+      vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=eLo3BmNc"
     }
   };
 

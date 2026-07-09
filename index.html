@@ -181,6 +181,7 @@
 
 </body>
 </html>
+<script src="js/affiliates.js"></script>
 <script>
   (function() {
     // State
@@ -254,7 +255,7 @@
                     <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Hub por 1 mês</span></li>
                     <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Academy por 1 mês</span></li>
                   </ul>
-                  <a href="https://pay.cakto.com.br/h6zxvfe" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Assinar mensal</a>
+                  <a href="${window.checkoutLinks.mensal}" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Assinar mensal</a>
                 </div>
 
                 <!-- Vitalício -->
@@ -286,7 +287,7 @@
                       <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Hub</span></li>
                       <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Academy</span></li>
                     </ul>
-                    <a href="https://pay.cakto.com.br/3a6ks56" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Garantir vitalício</a>
+                    <a href="${window.checkoutLinks.vitalicio}" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Garantir vitalício</a>
                   </div>
                 </div>
               </div>
@@ -380,7 +381,7 @@
                     <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Hub por 1 mês</span></li>
                     <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#00F0FF] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Academy por 1 mês</span></li>
                   </ul>
-                  <a href="https://pay.cakto.com.br/382chff_794824" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Assinar mensal</a>
+                  <a href="${window.checkoutLinks.mensal_desconto}" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Assinar mensal</a>
                 </div>
 
                 <!-- Vitalício -->
@@ -426,7 +427,7 @@
                       <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Hub</span></li>
                       <li class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#b026ff] shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg><span class="text-gray-400">Acesso ilimitado ao ViralPulse Academy</span></li>
                     </ul>
-                    <a href="https://pay.cakto.com.br/mkxq6qj" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Garantir vitalício</a>
+                    <a href="${window.checkoutLinks.vitalicio_desconto}" target="_blank" class="w-full bg-[#181820] border border-white/5 text-gray-300 hover:text-white rounded-[1.25rem] py-3 text-center text-sm font-semibold transition-colors block shadow-inner shadow-white/5">Garantir vitalício</a>
                   </div>
                 </div>
               </div>
@@ -443,11 +444,22 @@
         if (btn && input) {
           btn.addEventListener('click', () => {
             const val = input.value.trim().toLowerCase();
-            if (val === 'live' || val === 'copa 2026' || val === 'copa' || val === 'hexa2026') {
+            const myCoupons = ['live', 'copa 2026', 'copa', 'hexa2026'];
+            
+            if (myCoupons.includes(val)) {
+              window.checkoutLinks = window.defaultLinks;
               isDiscountActive = true;
               activeCoupon = val;
               startTimer();
               render();
+            } else if (window.affiliateCoupons && window.affiliateCoupons[val]) {
+              window.checkoutLinks = window.affiliateCoupons[val];
+              isDiscountActive = true;
+              activeCoupon = val;
+              startTimer();
+              render();
+            } else {
+              alert("Cupom inválido ou expirado.");
             }
           });
           input.addEventListener('keydown', (e) => {
@@ -460,6 +472,7 @@
           removeBtn.addEventListener('click', () => {
             isDiscountActive = false;
             activeCoupon = '';
+            window.checkoutLinks = window.defaultLinks; // reset to original
             if (timerInterval) clearInterval(timerInterval);
             timerSeconds = 10 * 60;
             render();

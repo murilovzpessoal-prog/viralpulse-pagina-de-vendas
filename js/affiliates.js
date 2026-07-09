@@ -46,6 +46,12 @@
       vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=twZub4Mh",
       mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=twZub4Mh",
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=twZub4Mh"
+    },
+    "fifacup": {
+      mensal: "https://pay.cakto.com.br/h6zxvfe?affiliate=nfvoEvTW",
+      vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=nfvoEvTW",
+      mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=nfvoEvTW",
+      vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=nfvoEvTW"
     }
   };
 

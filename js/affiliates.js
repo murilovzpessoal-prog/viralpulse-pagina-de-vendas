@@ -54,9 +54,9 @@
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=nfvoEvTW"
     },
     "boss": {
-      mensal: "https://pay.cakto.com.br/3cfvneu?affiliate=rRbjVQjD",
+      mensal: "https://pay.cakto.com.br/h6zxvfe?affiliate=rRbjVQjD",
       vitalicio: "https://pay.cakto.com.br/mkxq6qj?affiliate=rRbjVQjD",
-      mensal_desconto: "https://pay.cakto.com.br/3cfvneu?affiliate=rRbjVQjD",
+      mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=rRbjVQjD",
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=rRbjVQjD"
     }
   };

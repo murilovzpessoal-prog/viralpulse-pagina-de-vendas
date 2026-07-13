@@ -70,6 +70,12 @@
       vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=gpeTcP6d",
       mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=gpeTcP6d",
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=gpeTcP6d"
+    },
+    "brasil": {
+      mensal: "https://pay.cakto.com.br/h6zxvfe?affiliate=9JsUTWc2",
+      vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=9JsUTWc2",
+      mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=9JsUTWc2",
+      vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=9JsUTWc2"
     }
   };
 

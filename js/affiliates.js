@@ -82,6 +82,12 @@
       vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=8Sttv88r",
       mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=8Sttv88r",
       vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=8Sttv88r"
+    },
+    "wordcup": {
+      mensal: "https://pay.cakto.com.br/h6zxvfe?affiliate=M9ZFKekk",
+      vitalicio: "https://pay.cakto.com.br/3a6ks56?affiliate=M9ZFKekk",
+      mensal_desconto: "https://pay.cakto.com.br/382chff_794824?affiliate=M9ZFKekk",
+      vitalicio_desconto: "https://pay.cakto.com.br/mkxq6qj?affiliate=M9ZFKekk"
     }
   };
 
